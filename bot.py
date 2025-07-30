@@ -285,6 +285,10 @@ async def tune(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(response)
 
 # === Запуск ===
+
+if not TOKEN:
+    raise RuntimeError("❌ BOT_TOKEN не найден в переменных окружения!")
+
 app = ApplicationBuilder().token(TOKEN).build()
 
 # Обработчики команд
